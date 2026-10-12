@@ -1,0 +1,14 @@
+---
+import store from "../data/store.json";
+---
+
+<section class="section shell care-faq-section">
+  <article class="care-block" id="cuidado" aria-labelledby="care-title">
+    <h2 id="care-title">{store.care.heading}</h2><p>{store.care.intro}</p>
+    <ul>{store.care.tips.map((tip) => <li>{tip}</li>)}</ul>
+  </article>
+  <article class="faq-block" id="preguntas" aria-labelledby="faq-title">
+    <h2 id="faq-title">{store.faq.heading}</h2>
+    <div class="faq-list">{store.faq.items.map((item) => <details><summary><span>{item.question}</span><svg class="icon faq-icon" aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path d="m7 9 5 5 5-5" /></svg></summary><p>{item.answer}</p></details>)}</div>
+  </article>
+</section>

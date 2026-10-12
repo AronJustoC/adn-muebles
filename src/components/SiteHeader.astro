@@ -1,0 +1,34 @@
+---
+import store from "../data/store.json";
+import { whatsappLink } from "../lib/store";
+import Icons from "./Icons.astro";
+
+const headerMessage = "Hola, quiero consultar por un escritorio de ADN Muebles.";
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#inicio" aria-label={`${store.brand}, volver al inicio`}>
+      <Icons name="logo" size={38} />
+      <span>{store.brand}</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Navegación principal">
+      {store.navigation.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+    <div class="header-actions">
+      <a class="button button-small button-solid" href={whatsappLink(headerMessage)}>
+        <Icons name="whatsapp" size={18} />
+        <span>WhatsApp</span>
+      </a>
+      <details class="mobile-menu">
+        <summary aria-label="Abrir navegación">
+          <Icons name="menu" size={22} />
+          <span>Menú</span>
+        </summary>
+        <nav aria-label="Navegación móvil">
+          {store.navigation.map((item) => <a href={item.href}>{item.label}</a>)}
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>

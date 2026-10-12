@@ -1,0 +1,26 @@
+---
+import { Picture } from "astro:assets";
+import store from "../data/store.json";
+import { resolveProductImage } from "../lib/store";
+
+const product = store.products.find((item) => item.featured) ?? store.products[0];
+const steps = store.process.steps.map((step) => {
+  const imageData = step.imageRole ? product.images.find((image) => image.role === step.imageRole) : undefined;
+  return { ...step, imageData, image: imageData ? resolveProductImage(imageData.src) : undefined };
+});
+---
+
+<section class="section process-section" id="proceso" aria-labelledby="process-title">
+  <div class="shell">
+    <div class="section-intro split-heading"><h2 id="process-title">{store.process.heading}</h2><p>{store.process.intro}</p></div>
+    <ol class="process-list">
+      {steps.map((step, index) => (
+        <li class:list={["process-step", step.image && "process-step-with-image"]}>
+          <span class="process-number">{String(index + 1).padStart(2, "0")}</span>
+          <div class="process-text"><h3>{step.title}</h3><p>{step.description}</p></div>
+          {step.image && step.imageData && <Picture src={step.image} alt={step.imageData.alt} formats={["avif", "webp"]} widths={[320, 520, 720]} sizes="(min-width: 900px) 27vw, 100vw" loading="lazy" />}
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

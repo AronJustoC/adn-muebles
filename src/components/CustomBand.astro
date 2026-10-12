@@ -1,0 +1,22 @@
+---
+import store from "../data/store.json";
+import { whatsappLink } from "../lib/store";
+import Icons from "./Icons.astro";
+---
+
+<section class="custom-band" id="a-tu-medida" aria-labelledby="custom-title">
+  <div class="band-motif" aria-hidden="true"><Icons name="logo" size={320} /></div>
+  <div class="shell custom-layout">
+    <div class="custom-steps">
+      <div class="custom-lead">
+        <h2 id="custom-title">{store.custom.heading}</h2>
+        <p>{store.custom.audience}</p>
+      </div>
+      <ol class="custom-process" aria-label="Proceso para un mueble a medida">{store.custom.steps.map((step) => <li>{step}</li>)}</ol>
+    </div>
+    <div class="custom-action">
+      <p class="custom-closing">{store.custom.closing}</p>
+      <a class="button button-paper" href={whatsappLink(store.custom.message)}><span>Cotizar a mi medida</span><Icons name="arrow" /></a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,23 @@
+---
+import { Picture } from "astro:assets";
+import store from "../data/store.json";
+import { resolveProductImage } from "../lib/store";
+
+const product = store.products.find((item) => item.featured) ?? store.products[0];
+const imageData = product.images.find((image) => image.role === store.materials.imageRole) ?? product.images[0];
+const image = resolveProductImage(imageData.src);
+---
+
+<section class="section shell materials-section" id="materiales" aria-labelledby="materials-title">
+  <div class="materials-copy">
+    <h2 id="materials-title">{store.materials.heading}</h2>
+    <p class="lead">{store.materials.intro}</p>
+    <dl class="material-list">
+      {store.materials.items.map((item) => <div><dt>{item.name}</dt><dd>{item.description}</dd></div>)}
+    </dl>
+  </div>
+  <figure class="evidence-photo">
+    <Picture src={image} alt={imageData.alt} formats={["avif", "webp"]} widths={[480, 720, 960]} sizes="(min-width: 900px) 50vw, 100vw" loading="lazy" />
+    <figcaption>{store.materials.caption}</figcaption>
+  </figure>
+</section>

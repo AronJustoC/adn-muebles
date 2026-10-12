@@ -1,0 +1,23 @@
+---
+// UI icons come from Phosphor (MIT), bold weight everywhere for one consistent stroke.
+// The logo is the owner's own mark (a desk whose legs twist into a DNA helix, "ADN"),
+// vectorized from the supplied image into src/assets/logo.svg.
+import arrowRight from "@phosphor-icons/core/assets/bold/arrow-right-bold.svg?raw";
+import whatsapp from "@phosphor-icons/core/assets/bold/whatsapp-logo-bold.svg?raw";
+import list from "@phosphor-icons/core/assets/bold/list-bold.svg?raw";
+import logo from "../assets/logo.svg?raw";
+
+interface Props {
+  name: "arrow" | "whatsapp" | "logo" | "menu";
+  size?: number;
+}
+
+const { name, size = 20 } = Astro.props;
+const phosphor = { arrow: arrowRight, whatsapp, menu: list } as const;
+---
+
+{name === "logo" ? (
+  <span class="icon icon-logo" aria-hidden="true" style={`height:${size}px`} set:html={logo} />
+) : (
+  <span class="icon icon-ph" aria-hidden="true" style={`width:${size}px;height:${size}px`} set:html={phosphor[name]} />
+)}

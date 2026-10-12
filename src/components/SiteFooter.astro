@@ -1,0 +1,40 @@
+---
+import store from "../data/store.json";
+import { whatsappLink } from "../lib/store";
+import Icons from "./Icons.astro";
+---
+
+<footer class="site-footer" id="contacto" aria-labelledby="contact-title">
+  <div class="band-motif" aria-hidden="true"><Icons name="logo" size={320} /></div>
+  <div class="shell footer-main">
+    <div><h2 id="contact-title">{store.contact.heading}</h2><p>{store.contact.text}</p></div>
+    <a class="button button-paper footer-button" href={whatsappLink(store.contact.message)}><Icons name="whatsapp" /><span>Escribir al {store.whatsappDisplay}</span><Icons name="arrow" /></a>
+  </div>
+  <div class="shell footer-base">
+    <a class="brand brand-footer" href="#inicio" aria-label={`${store.brand}, volver al inicio`}><Icons name="logo" size={38} /><span>{store.brand}</span></a>
+    <p>{store.city}, {store.country}</p><p>{store.whatsappDisplay}</p>
+  </div>
+</footer>
+<a class="mobile-whatsapp" href={whatsappLink(store.hero.buyMessage)}><Icons name="whatsapp" /><span>Pedir por WhatsApp</span><Icons name="arrow" /></a>
+
+<script>
+  // Keep the sticky action away from both the hero action and contact band.
+  const bar = document.querySelector<HTMLElement>(".mobile-whatsapp");
+  const heroButton = document.querySelector<HTMLElement>(".hero .button-solid");
+  const contact = document.querySelector<HTMLElement>("#contacto");
+  if (bar && heroButton && contact && "IntersectionObserver" in window) {
+    document.documentElement.classList.add("js-sticky");
+    let heroVisible = true;
+    let contactVisible = false;
+    const updateBar = () => bar.classList.toggle("is-visible", !heroVisible && !contactVisible);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.target === heroButton) heroVisible = entry.isIntersecting;
+        if (entry.target === contact) contactVisible = entry.isIntersecting;
+      });
+      updateBar();
+    });
+    observer.observe(heroButton);
+    observer.observe(contact);
+  }
+</script>

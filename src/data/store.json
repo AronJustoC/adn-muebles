@@ -1,0 +1,122 @@
+{
+  "brand": "ADN Muebles",
+  "city": "Cusco",
+  "country": "Perú",
+  "whatsapp": "51983731782",
+  "whatsappDisplay": "983 731 782",
+  "seo": {
+    "title": "Escritorios industriales hechos a mano en Cusco | ADN Muebles",
+    "description": "Escritorio industrial de acero y terciado hecho a mano en Cusco. S/ 250, medida 120 x 60 x 80 cm y entrega a domicilio en Cusco ciudad."
+  },
+  "navigation": [
+    { "label": "Escritorio", "href": "#escritorio" },
+    { "label": "Materiales", "href": "#materiales" },
+    { "label": "A tu medida", "href": "#a-tu-medida" },
+    { "label": "Preguntas", "href": "#preguntas" }
+  ],
+  "hero": {
+    "headline": "Escritorios industriales hechos a mano en Cusco.",
+    "support": "Hechos a mano en un taller de Cusco, con entrega a domicilio dentro de la ciudad.",
+    "caption": "Escritorio industrial 120x60",
+    "buyMessage": "Hola, me interesa el escritorio industrial de 120 x 60 cm por S/ 250. Quisiera coordinar la compra.",
+    "customMessage": "Hola, quiero cotizar un escritorio industrial a mi medida."
+  },
+  "specSheet": {
+    "heading": "Ficha del escritorio",
+    "rows": [
+      { "label": "Medidas", "value": "120 x 60 x 80 cm; altura aproximada", "message": "Hola, quisiera confirmar las medidas del escritorio industrial de 120 x 60 x 80 cm." },
+      { "label": "Material", "value": "Acero con pintura negra texturizada y tablero de terciado", "message": "Hola, quisiera saber más sobre los materiales del escritorio industrial." },
+      { "label": "Desarmable", "value": "Sí, el tablero y las patas se separan para transportarlo", "message": "Hola, quisiera saber cómo se desarma y transporta el escritorio industrial." },
+      { "label": "Entrega", "value": "A domicilio dentro de Cusco ciudad", "message": "Hola, quisiera coordinar la entrega del escritorio industrial en Cusco ciudad." },
+      { "label": "A tu medida", "value": "Se fabrica con adelanto; precio y fecha se acuerdan por WhatsApp", "message": "Hola, quiero cotizar un escritorio industrial con otras medidas." }
+    ]
+  },
+  "catalog": {
+    "heading": "Catálogo",
+    "intro": "Una pieza del catálogo del taller, mostrada desde todos sus ángulos.",
+    "otherHeading": "¿Buscas otro mueble?",
+    "otherText": "Cuéntanos qué necesitas y te confirmamos si podemos fabricarlo.",
+    "otherMessage": "Hola, busco otro tipo de mueble. Quisiera contarles qué necesito para cotizarlo."
+  },
+  "products": [
+    {
+      "id": "escritorio-industrial-120x60",
+      "featured": true,
+      "featuredImage": 1,
+      "name": "Escritorio industrial modular 120x60",
+      "price": 250,
+      "currency": "PEN",
+      "description": "Hecho a mano y diseñado para desmontarse cuando necesitas transportarlo.",
+      "buyMessage": "Hola, me interesa el escritorio industrial modular 120x60 por S/ 250. Quisiera coordinar la compra.",
+      "images": [
+        { "src": "/img/escritorio-frente.png", "alt": "Vista completa del escritorio industrial con tablero de terciado y patas de acero en X dentro del taller", "label": "Completa", "role": "front", "width": 960, "height": 717 },
+        { "src": "/img/escritorio-ambiente.png", "alt": "Escritorio industrial ubicado junto a una ventana en una habitación amarilla", "label": "Ambiente", "role": "room", "width": 960, "height": 720 },
+        { "src": "/img/escritorio-patas.png", "alt": "Vista inferior de las patas cruzadas de acero negro del escritorio industrial", "label": "Patas", "role": "legs", "width": 960, "height": 720 },
+        { "src": "/img/escritorio-armado.png", "alt": "Tablero y dos patas de acero del escritorio separados para mostrar su diseño desmontable y sus pernos", "label": "Desarmado", "role": "assembly", "width": 818, "height": 960 },
+        { "src": "/img/escritorio-detalle.png", "alt": "Primer plano de las capas del tablero de terciado y del acero negro con pintura texturizada", "label": "Detalle", "role": "detail", "width": 960, "height": 717 }
+      ]
+    }
+  ],
+  "materials": {
+    "heading": "Acero y terciado, a la vista.",
+    "intro": "Los materiales no se esconden: la estructura muestra su acabado y el canto del tablero deja ver sus capas.",
+    "items": [
+      { "name": "Acero", "description": "Forma las patas en X y lleva pintura negra texturizada." },
+      { "name": "Terciado", "description": "Forma el tablero; en el canto se distinguen las capas que lo componen." }
+    ],
+    "imageRole": "detail",
+    "caption": "Canto del tablero de terciado y acabado del acero."
+  },
+  "process": {
+    "heading": "Cómo se fabrica",
+    "intro": "Un proceso corto de taller para construir una pieza desmontable.",
+    "steps": [
+      { "title": "Corte", "description": "Cortamos el acero y el tablero según la medida acordada.", "imageRole": "" },
+      { "title": "Estructura", "description": "Soldamos el acero para formar las dos patas en X.", "imageRole": "" },
+      { "title": "Acabado", "description": "Aplicamos pintura negra texturizada a la estructura.", "imageRole": "" },
+      { "title": "Armado", "description": "Fijamos el tablero con pernos para que pueda desmontarse.", "imageRole": "" }
+    ]
+  },
+  "custom": {
+    "heading": "Se puede a tu medida.",
+    "audience": "Para personas y para negocios como cafés, hostales y oficinas que necesitan otra medida o más de una pieza.",
+    "steps": [
+      "Nos indicas la medida",
+      "Confirmamos el precio y la fecha de entrega por WhatsApp",
+      "Coordinamos el adelanto",
+      "Fabricamos tu pedido",
+      "Coordinamos la entrega"
+    ],
+    "closing": "Hacemos entrega a domicilio dentro de Cusco ciudad. El pago y la disponibilidad se confirman por WhatsApp.",
+    "message": "Hola, quiero cotizar un mueble a mi medida. Estas son las medidas que necesito:"
+  },
+  "care": {
+    "heading": "Cuidado y mantenimiento",
+    "intro": "Recomendamos estos cuidados para el uso diario:",
+    "tips": [
+      "Evitar la humedad prolongada sobre el terciado.",
+      "Limpiar con un paño suave, seco o apenas húmedo.",
+      "No arrastrar el escritorio sobre el piso.",
+      "Revisar que los pernos queden firmes al volver a armarlo.",
+      "Mantener el mueble alejado de fuentes de calor directo."
+    ]
+  },
+  "faq": {
+    "heading": "Preguntas frecuentes",
+    "items": [
+      { "question": "¿Fabrican otros muebles?", "answer": "Cuéntanos qué necesitas y te confirmamos si podemos fabricarlo." },
+      { "question": "¿Cómo funciona el adelanto para una medida especial?", "answer": "El monto del adelanto, el precio y la fecha se acuerdan por WhatsApp antes de fabricar." }
+    ]
+  },
+  "about": {
+    "heading": "Sobre el taller",
+    "text": "Somos un taller de una persona en Cusco. Fabricamos a mano muebles de acero y terciado, y coordinamos cada pedido directamente por WhatsApp.",
+    "imageRole": "assembly",
+    "caption": "El escritorio preparado para el armado en el taller."
+  },
+  "contact": {
+    "heading": "Hablemos de tu mueble.",
+    "text": "Escríbenos para pedir el escritorio publicado o cotizar una medida especial.",
+    "message": "Hola, quiero consultar por un mueble de ADN Muebles."
+  }
+}

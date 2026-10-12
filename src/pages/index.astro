@@ -1,0 +1,78 @@
+---
+import "@fontsource/barlow-condensed/600.css";
+import "@fontsource/barlow-condensed/700.css";
+import "@fontsource/barlow-condensed/800.css";
+import "@fontsource/barlow/400.css";
+import "@fontsource/barlow/600.css";
+import "@fontsource/barlow/700.css";
+import "../styles/global.css";
+
+import About from "../components/About.astro";
+import CareFaq from "../components/CareFaq.astro";
+import CustomBand from "../components/CustomBand.astro";
+import Hero from "../components/Hero.astro";
+import Materials from "../components/Materials.astro";
+import Process from "../components/Process.astro";
+import ProductGallery from "../components/ProductGallery.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SpecIndex from "../components/SpecIndex.astro";
+import store from "../data/store.json";
+
+const product = store.products.find((item) => item.featured) ?? store.products[0];
+// The site is published under a sub-path (base), so every public file needs the base and, for link previews and
+// structured data, the full URL.
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const absolute = (path: string) => new URL(`${base}${path}`, Astro.site).href;
+const productJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: product.name,
+  description: product.description,
+  image: product.images.map((image) => absolute(image.src)),
+  brand: { "@type": "Brand", name: store.brand },
+  offers: { "@type": "Offer", price: product.price, priceCurrency: product.currency, url: absolute("/#catalogo") },
+};
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+    <link rel="icon" href={`${base}/favicon.ico`} />
+    <link rel="canonical" href={absolute("/")} />
+    <title>{store.seo.title}</title>
+    <meta name="description" content={store.seo.description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_PE" />
+    <meta property="og:url" content={absolute("/")} />
+    <meta property="og:title" content={store.seo.title} />
+    <meta property="og:description" content={store.seo.description} />
+    <meta property="og:image" content={absolute("/og-image.jpg")} />
+    <meta property="og:image:width" content="960" />
+    <meta property="og:image:height" content="504" />
+    <meta property="og:image:alt" content={product.images[0].alt} />
+    <meta name="theme-color" content="#19191B" />
+    <script type="application/ld+json" set:html={JSON.stringify(productJsonLd)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <SiteHeader />
+    <main id="contenido">
+      <Hero />
+      <SpecIndex />
+      <ProductGallery />
+      <Materials />
+      <div class="plywood-divider" aria-hidden="true"></div>
+      <Process />
+      <CustomBand />
+      <CareFaq />
+      <About />
+    </main>
+    <div class="plywood-divider" aria-hidden="true"></div>
+    <SiteFooter />
+  </body>
+</html>

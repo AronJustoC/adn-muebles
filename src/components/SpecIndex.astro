@@ -1,0 +1,22 @@
+---
+import store from "../data/store.json";
+import { money, whatsappLink } from "../lib/store";
+import Icons from "./Icons.astro";
+
+const product = store.products.find((item) => item.featured) ?? store.products[0];
+---
+
+<section class="section shell spec-section" id="escritorio" aria-labelledby="spec-title">
+  <div class="stamp-heading-row">
+    <h2 class="stamp-heading" id="spec-title">{store.specSheet.heading}</h2>
+  </div>
+  <div class="spec-table" role="list">
+    {store.specSheet.rows.map((row) => (
+      <a class="spec-row" href={whatsappLink(row.message)} role="listitem">
+        <span class="spec-label">{row.label}</span>
+        <span class="spec-value">{row.value}</span>
+        <span class="spec-action">Preguntar <Icons name="arrow" size={18} /></span>
+      </a>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,72 @@
+---
+import { Picture } from "astro:assets";
+import store from "../data/store.json";
+import { money, resolveProductImage, whatsappLink } from "../lib/store";
+import Icons from "./Icons.astro";
+
+const product = store.products.find((item) => item.featured) ?? store.products[0];
+const resolvedImages = product.images.map((image) => ({ ...image, asset: resolveProductImage(image.src) }));
+const mainImage = resolvedImages[product.featuredImage] ?? resolvedImages[0];
+---
+
+<section class="section shell catalog-section" id="catalogo" aria-labelledby="catalog-title">
+  <div class="section-intro split-heading">
+    <h2 id="catalog-title">{store.catalog.heading}</h2>
+    <p>{store.catalog.intro}</p>
+  </div>
+  <article class="catalog-product" aria-labelledby={`product-${product.id}`}>
+    <div class="product-gallery" data-gallery>
+      <div class="gallery-stage" aria-live="polite">
+        <Picture src={mainImage.asset} alt={mainImage.alt} formats={["avif", "webp"]} widths={[480, 720, 960]} sizes="(min-width: 900px) 58vw, 100vw" loading="lazy" data-gallery-main />
+        <p data-gallery-caption>{mainImage.label}</p>
+      </div>
+      <div class="gallery-grid" aria-label={`Galería de ${product.name}`}>
+        {resolvedImages.map((image, index) => (
+          <figure class="gallery-item">
+            <a href={`${import.meta.env.BASE_URL.replace(/\/$/, "")}${image.src}`} data-gallery-thumb data-caption={image.label} aria-label={`Ver ${image.label.toLowerCase()} como imagen principal`} aria-current={index === product.featuredImage ? "true" : undefined}>
+              <Picture src={image.asset} alt={image.alt} formats={["avif", "webp"]} widths={[240, 420, 720]} sizes="(min-width: 900px) 12vw, 50vw" loading="lazy" />
+            </a>
+            <figcaption>{image.label}</figcaption>
+            <template data-gallery-template>
+              <Picture src={image.asset} alt={image.alt} formats={["avif", "webp"]} widths={[480, 720, 960]} sizes="(min-width: 900px) 58vw, 100vw" loading="lazy" />
+            </template>
+          </figure>
+        ))}
+      </div>
+    </div>
+    <div class="product-copy">
+      <h3 id={`product-${product.id}`}>{product.name}</h3>
+      <p class="product-price">{money(product.price)}</p>
+      <p class="product-description">{product.description}</p>
+      <a class="button button-solid" href={whatsappLink(product.buyMessage)}>
+        <Icons name="whatsapp" /><span>Pedir por WhatsApp</span><Icons name="arrow" />
+      </a>
+    </div>
+  </article>
+  <div class="other-furniture">
+    <div><h3>{store.catalog.otherHeading}</h3><p>{store.catalog.otherText}</p></div>
+    <a class="text-arrow" href={whatsappLink(store.catalog.otherMessage)}>Contar lo que necesito <Icons name="arrow" /></a>
+  </div>
+</section>
+
+<script>
+  document.documentElement.classList.add("js");
+  document.querySelectorAll<HTMLElement>("[data-gallery]").forEach((gallery) => {
+    const stage = gallery.querySelector<HTMLElement>(".gallery-stage");
+    const caption = gallery.querySelector<HTMLElement>("[data-gallery-caption]");
+    const thumbnails = gallery.querySelectorAll<HTMLAnchorElement>("[data-gallery-thumb]");
+    if (!stage || !caption) return;
+    thumbnails.forEach((thumbnail) => {
+      thumbnail.addEventListener("click", (event) => {
+        event.preventDefault();
+        const template = thumbnail.parentElement?.querySelector<HTMLTemplateElement>("[data-gallery-template]");
+        const nextPicture = template?.content.firstElementChild?.cloneNode(true);
+        if (!(nextPicture instanceof HTMLElement)) return;
+        stage.querySelector("picture")?.replaceWith(nextPicture);
+        caption.textContent = thumbnail.dataset.caption ?? "";
+        thumbnails.forEach((item) => item.removeAttribute("aria-current"));
+        thumbnail.setAttribute("aria-current", "true");
+      });
+    });
+  });
+</script>

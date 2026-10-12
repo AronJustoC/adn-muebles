@@ -1,0 +1,33 @@
+---
+import { Picture } from "astro:assets";
+import store from "../data/store.json";
+import { money, resolveProductImage, whatsappLink } from "../lib/store";
+import Icons from "./Icons.astro";
+
+const product = store.products.find((item) => item.featured) ?? store.products[0];
+const heroImageData = product.images[product.featuredImage] ?? product.images[0];
+const heroImage = resolveProductImage(heroImageData.src);
+---
+
+<section class="hero" id="inicio" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <h1 id="hero-title">{store.hero.headline}</h1>
+    <p class="hero-support">{store.hero.support}</p>
+    <p class="hero-price">{money(product.price)}</p>
+    <div class="button-group">
+      <a class="button button-solid" href={whatsappLink(store.hero.buyMessage)}>
+        <Icons name="whatsapp" />
+        <span>Pedir por WhatsApp</span>
+        <Icons name="arrow" />
+      </a>
+      <a class="button button-outline" href={whatsappLink(store.hero.customMessage)}>
+        <span>Cotizar a mi medida</span>
+        <Icons name="arrow" />
+      </a>
+    </div>
+  </div>
+  <figure class="hero-media">
+    <Picture src={resolveProductImage(product.images[0].src)} alt={product.images[0].alt} formats={["avif", "webp"]} widths={[480, 720, 960]} sizes="(min-width: 900px) 55vw, 100vw" loading="eager" fetchpriority="high" />
+    <figcaption>{store.hero.caption}</figcaption>
+  </figure>
+</section>
