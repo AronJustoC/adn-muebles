@@ -71,7 +71,8 @@
     "heading": "Cómo se fabrica",
     "intro": "Un proceso corto de taller para construir una pieza desmontable.",
     "steps": [
-      { "title": "Corte", "description": "Cortamos el acero y el tablero según la medida acordada.", "imageRole": "" },
+      { "title": "Modelo 3D", "description": "Si hace falta, diseñamos tu mueble en SolidWorks según tus medidas y estilo, y lo revisamos contigo.", "imageRole": "" },
+      { "title": "Corte", "description": "Cortamos el acero y el tablero a partir de los planos que salen del modelo 3D.", "imageRole": "" },
       { "title": "Estructura", "description": "Soldamos el acero para formar las dos patas en X.", "imageRole": "" },
       { "title": "Acabado", "description": "Aplicamos pintura negra texturizada a la estructura.", "imageRole": "" },
       { "title": "Armado", "description": "Fijamos el tablero con pernos para que pueda desmontarse.", "imageRole": "" }
@@ -81,14 +82,15 @@
     "heading": "Se puede a tu medida.",
     "audience": "Para personas y para negocios como cafés, hostales y oficinas que necesitan otra medida o más de una pieza.",
     "steps": [
-      "Nos indicas la medida",
+      "Nos indicas la medida y el estilo que buscas",
+      "Si hace falta, diseñamos tu mueble en 3D con SolidWorks y lo revisamos contigo antes de fabricar",
       "Confirmamos el precio y la fecha de entrega por WhatsApp",
       "Coordinamos el adelanto",
       "Fabricamos tu pedido",
       "Coordinamos la entrega"
     ],
     "closing": "Hacemos entrega a domicilio dentro de Cusco ciudad. El pago y la disponibilidad se confirman por WhatsApp.",
-    "message": "Hola, quiero cotizar un mueble a mi medida. Estas son las medidas que necesito:"
+    "message": "Hola, quiero cotizar un mueble a mi medida y estilo. Estas son las medidas que necesito:"
   },
   "care": {
     "heading": "Cuidado y mantenimiento",
@@ -105,6 +107,7 @@
     "heading": "Preguntas frecuentes",
     "items": [
       { "question": "¿Fabrican otros muebles?", "answer": "Cuéntanos qué necesitas y te confirmamos si podemos fabricarlo." },
+      { "question": "¿Pueden diseñar un mueble según mis medidas y mi estilo?", "answer": "Sí. Te acompañamos desde el diseño hasta la fabricación. Cuando hace falta, creamos un modelo 3D personalizado en SolidWorks con tus medidas y el estilo que buscas, y lo revisamos contigo antes de fabricar." },
       { "question": "¿Cómo funciona el adelanto para una medida especial?", "answer": "El monto del adelanto, el precio y la fecha se acuerdan por WhatsApp antes de fabricar." }
     ]
   },

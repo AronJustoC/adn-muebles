@@ -848,7 +848,7 @@ article[id] {
   padding: 1rem 0;
   display: grid;
   grid-template-columns: clamp(3.5rem, 10vw, 4.5rem) minmax(0, 1fr);
-  align-items: baseline;
+  align-items: center;
   gap: 1rem;
   border-bottom: 1px solid var(--paper);
   counter-increment: custom-step;
@@ -1319,7 +1319,7 @@ article[id] {
 
   .process-list {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     border-bottom: 3px solid var(--ink);
   }
 
